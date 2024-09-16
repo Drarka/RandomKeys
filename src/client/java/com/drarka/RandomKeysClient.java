@@ -48,8 +48,10 @@ public class RandomKeysClient implements ClientModInitializer {
 						int randInt = new Random().nextInt(originalKeys.size());
 
 						//if(randInt <= originalKeys.size() && randInt > 0) {
-							key.setBoundKey(InputUtil.fromTranslationKey(originalKeys.get(randInt)));
+
+							client.options.setKeyCode(key, InputUtil.fromTranslationKey(originalKeys.get(randInt)));
 							originalKeys.remove(randInt);
+							KeyBinding.updateKeysByCode();
 						//}
 				}
 
